@@ -6,20 +6,32 @@
 
     <fragment
         android:id="@+id/listPlacesFragment"
-        android:name="com.sanjaydevtech.cityguide.ListPlacesFragment"
+        android:name="com.sanjaydevtech.cityguide.ui.main.ListPlacesFragment"
         android:label="List Places" >
         <argument
-            android:name="place"
-            app:argType="com.sanjaydevtech.cityguide.Place"
+            android:name="category"
+            app:argType="com.sanjaydevtech.cityguide.model.Category"
             app:nullable="true"
-            android:defaultValue="@null" />
+            android:defaultValue="@null"
+            />
     </fragment>
     <fragment
         android:id="@+id/categoriesFragment"
-        android:name="com.sanjaydevtech.cityguide.CategoriesFragment"
+        android:name="com.sanjaydevtech.cityguide.ui.main.CategoriesFragment"
         android:label="CategoriesFragment" >
         <action
-            android:id="@+id/action_categoriesFragment_to_listPlacesFragment"
-            app:destination="@id/listPlacesFragment" />
+            android:id="@+id/openListPlaces"
+            app:destination="@id/listPlacesWithCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listPlacesWithCategoryFragment"
+        android:name="com.sanjaydevtech.cityguide.ui.main.ListPlacesFragment"
+        android:label="List Places with Category" >
+        <argument
+            android:name="category"
+            app:argType="com.sanjaydevtech.cityguide.model.Category"
+            app:nullable="true"
+            android:defaultValue="@null"
+            />
     </fragment>
 </navigation>

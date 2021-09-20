@@ -1,11 +1,13 @@
-package com.sanjaydevtech.cityguide
+package com.sanjaydevtech.cityguide.ui.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.navArgs
 import com.sanjaydevtech.cityguide.databinding.FragmentListPlacesBinding
+import com.sanjaydevtech.cityguide.ui.main.ListPlacesAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -19,6 +21,8 @@ class ListPlacesFragment : Fragment() {
     @Inject
     lateinit var listPlacesAdapter: ListPlacesAdapter
 
+    private val args by navArgs<ListPlacesFragmentArgs>()
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -31,6 +35,7 @@ class ListPlacesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.placesRv.adapter = listPlacesAdapter
+        listPlacesAdapter.category = args.category
     }
 
     override fun onDestroyView() {

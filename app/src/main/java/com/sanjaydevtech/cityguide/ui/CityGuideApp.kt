@@ -1,4 +1,4 @@
-package com.sanjaydevtech.cityguide
+package com.sanjaydevtech.cityguide.ui
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
